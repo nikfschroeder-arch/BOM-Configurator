@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BOM Configurator</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="top-bar">
+    <h1>BOM Configurator</h1>
+    <div id="selectedCategoryBadge" class="category-badge hidden"></div>
+  </header>
+
+  <main>
+    <section class="prompt-panel">
+      <h2>What are you building?</h2>
+      <p>Select a Product Category to start composing your BOM.</p>
+      <div id="productCategoryButtons" class="button-row"></div>
+    </section>
+
+    <section class="app-grid">
+      <article class="left-panel">
+        <h3>Purchasing Categories</h3>
+        <div id="purchasingFilters" class="filter-list"></div>
+
+        <h3>Available Items</h3>
+        <p class="hint">Drag items into the BOM builder.</p>
+        <div id="itemCloud" class="item-cloud" aria-live="polite"></div>
+      </article>
+
+      <article class="middle-panel">
+        <h3>BOM Builder</h3>
+        <div id="bomDropZone" class="drop-zone" tabindex="0">
+          Drop items here to add to BOM
+        </div>
+        <table class="bom-table">
+          <thead>
+            <tr>
+              <th>Item #</th>
+              <th>Description</th>
+              <th>Qty</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="bomRows"></tbody>
+        </table>
+      </article>
+
+      <article class="right-panel">
+        <h3>Drawing Mapper</h3>
+        <input id="drawingUpload" type="file" accept="image/*" />
+        <p class="hint">Upload a drawing, then click image to place selected BOM item.</p>
+        <select id="bomItemSelector">
+          <option value="">Select BOM item to map</option>
+        </select>
+        <div id="drawingCanvasWrap" class="drawing-wrap">
+          <img id="drawingImage" alt="Uploaded drawing" class="hidden" />
+          <div id="drawingOverlay" class="overlay"></div>
+        </div>
+        <ul id="mappingList" class="mapping-list"></ul>
+      </article>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
